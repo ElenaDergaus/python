@@ -14,13 +14,28 @@
 
 from abc import ABC, abstractmethod
 
-
 class Clothes(ABC):
     name = 'Одежда'
 
     @abstractmethod
     def consumption(self):
         pass
+
+
+
+class Cons:
+    def __init__(self):
+        self.total_cons = []
+
+    def add_coat(self,  size):
+        self.total_cons.append(Coat(size).consumption)
+
+    def add_costume(self, height):
+        self.total_cons.append(Costume(height).consumption)
+
+    def total(self):
+        return sum(self.total_cons)
+
 
 
 class Coat(Clothes):
@@ -45,5 +60,10 @@ class Costume(Clothes):
 userCoat = Coat(46)
 print(userCoat.consumption)
 
-userCostume = Costume(180)
+userCostume = Costume(1.80)
 print(userCostume.consumption)
+
+dress = Cons()
+dress.add_coat(46)
+dress.add_costume(1.80)
+print(dress.total())
