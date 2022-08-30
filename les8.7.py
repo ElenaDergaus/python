@@ -25,6 +25,8 @@ class Complex:
 
     @staticmethod
     def check(x):
+        """Функция выполняет проверку введенных пользователем данных
+        Допустимые значения int  и  float"""
         try:
             if not isinstance(x, int) and not isinstance(x, float):
                 raise MyError("Вы ввели недопустимое значение:", x)
